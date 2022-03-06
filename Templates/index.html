@@ -1,0 +1,21 @@
+{%extends 'base.html'%} 
+{%block content%}
+<div class='container'>
+	<h1>{{mensaje}}</h1>
+	<ul class='list-group'>
+		{%for i in productos%}
+		<li class='list-group-item'>{{i.titulo}} 
+		<span> {%if i.stock%} 
+		<span class='text-success'> En Stock </span>
+				{%else%} 
+				<span class='text-danger'> Sin Stock</span>
+				{%endif%}
+		</span>
+		</li> {%endfor%}
+	</ul>
+	<!-- 
+<img src=" static 'images/gorra.jpeg' " width='100'>
+ -->
+
+</div>
+{%endblock%}

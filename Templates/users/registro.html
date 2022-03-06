@@ -1,0 +1,30 @@
+{%extends 'base.html'%} 
+{%block content%}
+	<div class='container'>
+		<div class='row'>
+			<div class='col'>
+				<div class="col-12 col-sd- offset -sc-3">
+					<div Class="card">
+						<div Class=°card-body">
+							<h2>Registro</h2>
+							<form method='post'>
+								<div class='form_group'>
+								{%csrf_token%} 
+								{%for m in form%}
+									{{m.label_tag}} 
+									{{m}} 
+									{%if m.errors%} 
+										{{m.errors}} 
+									{%endif%}
+								{%endfor%}
+								</div>
+								<button type='submit' class='btn btn-primary'>Registro</button>
+							</form>
+							<a href = "{% url 'social:begin' 'facebook' %}"> "Registrar con Facebook" </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{%endblock%}
