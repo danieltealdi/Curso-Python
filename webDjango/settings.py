@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'products',
-]
+    'categories',
+    'users',
+    'carts',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,6 +73,11 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+
+        'libraries':  {
+                #'precio_tag': 'products.templatetags.function_tag.precio_tag',
+            }
+
         },
     },
 ]
@@ -106,11 +114,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+USE_L10N=True
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'UTC'
 
@@ -129,6 +137,8 @@ STATICFILES_DIRS=(
     os.path.join(BASE_DIR, 'static'),
     )
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type
