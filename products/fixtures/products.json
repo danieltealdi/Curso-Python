@@ -1,0 +1,74 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "Gorra DB",
+        "description": "Excelente gorra a un precio increible!",
+        "price": "10.00",
+        "image": "",
+        "created_at": "2022-03-13T14:36:56.497Z",
+        "slug": "gorra-db"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "Campera RX",
+        "description": "Camera ideal para viento y lluvia a un precio muy económico",
+        "price": "15.00",
+        "image": "",
+        "created_at": "2022-03-13T14:36:56.497Z",
+        "slug": "campera-rx"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "Zapatillas RXT",
+        "description": "Zapatillas",
+        "price": "20.00",
+        "image": "",
+        "created_at": "2022-03-13T14:36:56.497Z",
+        "slug": "zapatillas-rxt"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "title": "Chandal XXL",
+        "description": "Chandal para todos los deportes",
+        "price": "25.00",
+        "image": "",
+        "created_at": "2022-03-13T14:36:56.497Z",
+        "slug": "chandal-xxl"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+        "title": "Pantalon Hombre HDX",
+        "description": "Pantalón hombre muy resistente al frío",
+        "price": "3.00",
+        "image": "products/Captura_de_pantalla_de_2019-04-20_12-46-26_2YcQ0cA.png",
+        "created_at": "2022-03-13T19:14:19.217Z",
+        "slug": "musculosa"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+        "title": "Musculosa",
+        "description": "Musculosa grande",
+        "price": "5.00",
+        "image": "products/gorra.jpeg",
+        "created_at": "2022-03-13T19:15:11.532Z",
+        "slug": "musculosa-362f9454"
+    }
+}
+]

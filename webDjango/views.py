@@ -6,18 +6,16 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from .forms import Registro
 
-def index(request):
-    return render(request, 'index.html', {
-        'mensaje': 'Tienda',
-        'titulo' : 'Inicio',
-        'productos' :[
-            {'titulo': 'Campera','precio':15, 'stock':False},
-            {'titulo':'Pantalon','precio':11, 'stock':True},
-            {'titulo':'Remera','precio':18, 'stock':False},
-            {'titulo':'Gorra','precio':10, 'stock' :True},
-            ]
-     })
 
+"""    
+def index(request):
+    productos=Product.objects.all()
+    return render(request, 'index.html', {
+        ##'mensaje': 'Tienda',
+        'titulo' : 'Inicio',
+        'productos' :productos
+     })
+"""
 def login(request):
     if request.user.is_authenticated:
         return redirect('index')
