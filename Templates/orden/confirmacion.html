@@ -45,7 +45,7 @@
 						<strong>Código descuento</strong>
 					</div>
 					<div class='fst-italic'>
-						<form id="formPromo-codigo">
+						<form id="formPromo-codigo" action="{% url 'validar' %}">
 							<input type="text" name='codigo' value='' placeholder='Código descuento' class='form-control'>
 						</form>
 						
@@ -89,7 +89,15 @@
 const form=document.getElementById('formPromo-codigo');
 form.addEventListener('submit',function(e){
 	e.preventDefault();
+	const input=this.codigo;
 	const codigo=input.value;
+	const url=this.action + '?code='+codigo;
+	console.log(url);
+	fetch(url)
+		.then(response=>response.json())
+		.then(response=>{
+			console.log(response.descuento)
+		})
 })
 </script>
 
