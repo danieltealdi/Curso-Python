@@ -10,9 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from pathlib import Path
-from django.conf.global_settings import STATICFILES_DIRS
 import os.path
+from pathlib import Path
+
+from django.conf.global_settings import STATICFILES_DIRS, AUTH_USER_MODEL
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,6 +49,9 @@ INSTALLED_APPS = [
     'categories',
     'users',
     'carts',
+    'orden',
+    'DirEnvio',
+    'promo_codigo',
     ]
 
 MIDDLEWARE = [
@@ -60,6 +65,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'webDjango.urls'
+
+AUTH_USER_MODEL='users.User'
 
 TEMPLATES = [
     {

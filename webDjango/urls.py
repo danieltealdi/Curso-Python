@@ -13,17 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
-from . import views
-from django.views.generic import RedirectView
-from django.conf.urls import url
-from django.urls import include
-from products.views import ProductListView
-from django.conf.urls.static import static
 from django.conf import settings
-#from .models import Product
+from django.conf.urls import url
+from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import include
+from django.urls import path
+from django.views.generic import RedirectView
 
+from products.views import ProductListView
+
+from . import views
+
+
+#from .models import Product
 urlpatterns = [
     #path('', views.index, name='index'),
     
@@ -37,6 +40,9 @@ urlpatterns = [
     path('social-auth/', include('social_django.urls', namespace="social")),
     path('productos/', include('products.urls')),
     path('carrito/', include('carts.urls')),
+    path('orden/', include('orden.urls')),
+    path('direcciones/', include('DirEnvio.urls')),
+    path('codigopromo/', include('promo_codigo.urls')),
 
 ]
 if settings.DEBUG:

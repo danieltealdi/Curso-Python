@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+{% include 'orden/snippets/breadcrumb.html' %}
+{% endblock %}
+
+{% block content %}
+<div class='col'>
+	<div class='h3'>
+		Selecciona una dirección para el envío
+	</div>
+	<div class='mt-2'>
+		{% for i in direccion_envios %}
+		 <div class='card mb-2'>
+		 <div class='card-body text-white bg-dark'>
+		 <h5 class='card-title'>{{ i.direccion }}</h5>
+		 <p class='card-title'>{{ i.postal_code }}</p>
+		 <a class='btn btn-danger' href="{% url 'check_direccion' i.pk %}">Seleccionar</a>
+		 </div>
+		 </div>
+		{% endfor %}
+	</div>
+	
+</div>
+
+{% endblock %}
+

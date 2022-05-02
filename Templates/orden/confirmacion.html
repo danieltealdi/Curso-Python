@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block breadcrumb %}
+{% include 'orden/snippets/breadcrumb.html' %}
+{% endblock %}
+{% block content %}
+
+<div class='col-8'>
+	<div class='h3'>
+		Confirmación de pedido
+	</div>
+	<div class='card'>
+		<div class='card-body'>
+			<div class='row'>
+				<div class='col-4'>
+					<div class='badge bg-primary text-wrap'>
+						<strong>Direccion de envío</strong>
+					</div>
+					<div class='fst-italic'>
+						<strong>Dirección: </strong>{{ direccion_envio.direccion }}
+					</div>
+					<div class='fst-italic'>
+						<strong>Domicilio: </strong>{{ direccion_envio.line1 }}
+					</div>
+					<div class='fst-italic'>
+						<strong>Referencia: </strong>{{ direccion_envio.reference }}
+					</div>
+					<div class='fst-italic'>
+						<strong>Código postal: </strong>
+						
+						{{ direccion_envio.postal_code }}
+					</div>
+				
+				</div>
+				<div class='col-4'>
+					<div class='badge bg-danger text-wrap'>
+						<strong>Métodos  de pago</strong>
+					</div>
+					<div class='fst-italic'>
+						<strong>Tarjeta: </strong>1234 5678 9101 1121
+					</div>
+				
+				</div>
+				<div class='col-4'>
+					<div class='badge bg-warning text-wrap'>
+						<strong>Código descuento</strong>
+					</div>
+					<div class='fst-italic'>
+						<form id="formPromo-codigo">
+							<input type="text" name='codigo' value='' placeholder='Código descuento' class='form-control'>
+						</form>
+						
+					</div>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="alert alert-primary" role="alert">
+		Esta es tu orden hasta el momento <a href="{% url 'orden' %}" class="alert-link">Mi orden</a>
+		puedes modificarla si quieres
+	</div>
+	<div class="mt-1">
+		<div class="card">
+			<div class="card-body">
+				{% for product in cart.products.all %}
+				{% include 'orden/snippets/product.html'%}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+		<div class="col">
+			{% url 'completado' as next_url %}
+			{% include 'orden/snippets/detalles.html' with next_url=next_url %}
+			<div class=''>
+				<div class="card card border-warning mb-3" style="width:18rem;">
+					<div class="card-body">
+						<a class="btn btn-danger d-grid gap-2" href="{% url 'cancelar' %}">Eliminar Orden</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+{% endblock %}
+{% block js %}
+<script>
+const form=document.getElementById('formPromo-codigo');
+form.addEventListener('submit',function(e){
+	e.preventDefault();
+	const codigo=input.value;
+})
+</script>
+
+{% endblock %}
+

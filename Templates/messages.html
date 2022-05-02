@@ -3,10 +3,11 @@
 		{% if m.tags == 'success' %}
 			<div Class="alert alert-success">
 			{{m}}
-		{%else%}
 			</div>
+		{%else%}
 			<div Class="alert alert-danger">
 			{{m}}
+			</div>
 		{% endif %}
 	{% endfor %}
 {% endif %}

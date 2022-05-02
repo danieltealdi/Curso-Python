@@ -1,12 +1,3 @@
-from django.shortcuts import render
-from django.contrib.auth import login as lg
-from django.contrib.auth import logout
-from django.contrib.auth import authenticate
-from django.shortcuts import redirect
-from django.contrib import messages
-from .forms import Registro
-
-
 """    
 def index(request):
     productos=Product.objects.all()
@@ -16,6 +7,19 @@ def index(request):
         'productos' :productos
      })
 """
+
+from django.contrib import messages
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as lg
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+
+
+from .forms import Registro
+
+
 def login(request):
     if request.user.is_authenticated:
         return redirect('index')
@@ -27,6 +31,8 @@ def login(request):
         if usuarios:
             lg(request, usuarios)
             messages.success(request, f'Bienvenido {usuarios.username}')
+            if request.GET.get('next'):
+                return HttpResponseRedirect(request.GET['next'])
             return redirect('index')
         else:
             messages.error(request, 'Datos incorrectos')
